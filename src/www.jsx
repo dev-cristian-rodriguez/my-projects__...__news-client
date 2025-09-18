@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
 
-import App from './app.jsx';
+import Main from './Main.jsx';
 
-ReactDOM.createRoot(document.querySelector('#root')).render(<App />);
+ReactDOM.createRoot(document.querySelector('#root')).render(<Main />);

@@ -22,12 +22,16 @@
 
 /* Loader */
 .containerLoader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
     padding: 140px 0px;
     display: flex;
     justify-content: center;
 }
 
-.loader {
+.containerLoader .loader {
     width: 100px;
     height: 100px;
     border: 8px solid var(--tertiary-background-color);
@@ -36,6 +40,20 @@
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
+}
+
+.containerLoader p {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--tertiary-background-color);
+}
+
+.containerLoader span {
+    display: block;
+    text-align: center;
+    color: var(--text-color-on-primary-background);
+    font-size: 13px;
+    opacity: 0.9;
 }
 
 @keyframes rotation {
@@ -147,7 +165,7 @@ a {
 
 .titleNews {
     padding: 10px;
-    font-size: 21px;
+    font-size: 18px;
     margin: 0px;
 }
 

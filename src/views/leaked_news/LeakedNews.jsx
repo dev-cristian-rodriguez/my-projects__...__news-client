@@ -74,10 +74,10 @@ export function LeakedNews() {
                                         style={
                                             item === params
                                                 ? {
-                                                      background: '#191919',
-                                                      textDecoration: 'underline',
-                                                      cursor: 'default',
-                                                  }
+                                                    background: '#191919',
+                                                    textDecoration: 'underline',
+                                                    cursor: 'default',
+                                                }
                                                 : null
                                         }
                                         className={style.Linkcategory}
@@ -119,7 +119,9 @@ export function LeakedNews() {
                                                     src={item.urlToImage}
                                                     alt="img"
                                                 />
-                                                <h1 className={style.titleNews}>{item.title}</h1>
+                                                <h1 className={style.titleNews}>
+                                                    {item?.title?.length > 110 ? item.title.slice(0, 110) + '...' : item?.title}
+                                                </h1>
                                                 <p className={style.date}>
                                                     {item.publishedAt.split('T')[0]}
                                                 </p>
@@ -136,6 +138,8 @@ export function LeakedNews() {
             ) : (
                 <div className={style.containerLoader}>
                     <span className={style.loader}></span>
+                    <p>Cargando datos ...</p>
+                    <span> Esto podria tardar unos segundos </span>
                 </div>
             )}
 
