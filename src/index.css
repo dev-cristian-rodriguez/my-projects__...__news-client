@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
     html {
         font-family: 'Poppins', sans-serif;
     }
-}
-
-body {
-    margin: 0px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    
+    body {
+        margin: 0px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
 }
 
 /* Modal animation */
