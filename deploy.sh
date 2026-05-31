@@ -1,2 +1,2 @@
-npm install;
+pnpm install;
 npm run build
