@@ -1,8 +1,6 @@
 import { CiMemoPad } from 'react-icons/ci';
-import { AiFillFacebook } from 'react-icons/ai';
 import { AiFillGithub } from 'react-icons/ai';
 import { AiFillLinkedin } from 'react-icons/ai';
-import { AiOutlineInstagram } from 'react-icons/ai';
 import { BiNews } from 'react-icons/bi';
 
 export function Footer() {
@@ -44,15 +42,6 @@ export function Footer() {
                             <a
                                 className="p-3 rounded-full bg-slate-800 hover:bg-primary text-slate-300 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900"
                                 rel="noreferrer"
-                                href="https://www.facebook.com/cristian.rodriguezbenitez.5/"
-                                target="_blank"
-                                aria-label="Facebook"
-                            >
-                                <AiFillFacebook size={24} />
-                            </a>
-                            <a
-                                className="p-3 rounded-full bg-slate-800 hover:bg-primary text-slate-300 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900"
-                                rel="noreferrer"
                                 href="https://www.linkedin.com/in/rodriguezbenitez/"
                                 target="_blank"
                                 aria-label="LinkedIn"
@@ -67,15 +56,6 @@ export function Footer() {
                                 aria-label="GitHub"
                             >
                                 <AiFillGithub size={24} />
-                            </a>
-                            <a
-                                className="p-3 rounded-full bg-slate-800 hover:bg-primary text-slate-300 hover:text-white transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900"
-                                rel="noreferrer"
-                                href="https://www.instagram.com/cristianrodriguez0102/"
-                                target="_blank"
-                                aria-label="Instagram"
-                            >
-                                <AiOutlineInstagram size={24} />
                             </a>
                         </div>
                         <p className="text-slate-500 text-sm pt-4 border-t border-slate-800 w-full max-w-md">

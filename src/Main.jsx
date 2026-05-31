@@ -1,17 +1,17 @@
 // Routes
 import RoutesApp from './routes/index.routes.jsx';
 
-// Hooks
-import useActivateServer from '@/hooks/useActivateServer.js';
+// Context
+import { ThemeProvider } from './context/ThemeContext.jsx';
 
-// Styles 
+// Styles
 import './index.css';
 
 const Main = () => {
-    useActivateServer();
-
     return (
-        <RoutesApp />
+        <ThemeProvider>
+            <RoutesApp />
+        </ThemeProvider>
     );
 };
 

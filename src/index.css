@@ -8,12 +8,13 @@
     html {
         font-family: 'Poppins', sans-serif;
     }
-    
+
     body {
         margin: 0px;
         box-sizing: border-box;
         overflow-x: hidden;
         scroll-behavior: smooth;
+        transition: background-color 0.2s ease;
     }
 }
 

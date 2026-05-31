@@ -161,4 +161,7 @@ psd
 thumb
 sketch
 
+.claude/settings.json
+.claude/claude.log
+
 # End of https://www.toptal.com/developers/gitignore/api/react

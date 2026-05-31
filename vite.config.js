@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
     plugins: [react()],
     build: {
-        chunkSizeWarningLimit: 3000,
+        chunkSizeWarningLimit: 5000,
     },
     resolve: {
         alias: {

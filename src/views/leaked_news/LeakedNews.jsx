@@ -5,11 +5,14 @@ import { BiSearch } from 'react-icons/bi';
 import { HiOutlineCalendar } from 'react-icons/hi';
 import { NewsGridSkeleton } from '@/components/skeleton/NewsCardSkeleton.jsx';
 
+// Constants
+import { URL_BACKEND_DJANGO } from '@/constants/urls';
+
 export function LeakedNews() {
     const navigate = useNavigate();
     const params = useParams().slug;
 
-    const url = `${import.meta.env.VITE_URL_BACKEND_DJANGO}/news/news_category/?slug=${params}`;
+    const url = `${URL_BACKEND_DJANGO}/news/news_category/?slug=${params}`;
 
     const [showNews, setShowNews] = useState(false);
     const [news, setNews] = useState([]);
@@ -69,7 +72,7 @@ export function LeakedNews() {
     };
 
     return (
-        <main className="min-h-screen bg-slate-50">
+        <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-200">
             <Helmet>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,7 +80,7 @@ export function LeakedNews() {
             </Helmet>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-8 md:mb-12 text-center">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-8 md:mb-12 text-center">
                     Noticias
                 </h1>
 
@@ -94,10 +97,10 @@ export function LeakedNews() {
                                             key={index}
                                             onClick={() => changeBetweenCategories(item)}
                                             disabled={isActive}
-                                            className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-medium text-sm md:text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                                            className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-medium text-sm md:text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-slate-950 ${
                                                 isActive
                                                     ? 'bg-primary text-white cursor-default shadow-md scale-105'
-                                                    : 'bg-white border border-slate-200 text-slate-700 hover:bg-primary hover:text-white hover:border-primary hover:scale-105 active:scale-95'
+                                                    : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary dark:hover:border-primary hover:scale-105 active:scale-95'
                                             }`}
                                         >
                                             {item}
@@ -113,7 +116,7 @@ export function LeakedNews() {
                             >
                                 <div className="relative flex gap-2">
                                     <div className="relative flex-1">
-                                        <BiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 text-xl" />
+                                        <BiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 text-xl" />
                                         <input
                                             name="search"
                                             type="text"
@@ -121,7 +124,7 @@ export function LeakedNews() {
                                             onChange={onChangeSearch}
                                             required
                                             placeholder="Buscar noticias..."
-                                            className="w-full pl-12 pr-4 py-3 md:py-4 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 text-base"
+                                            className="w-full pl-12 pr-4 py-3 md:py-4 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 text-base"
                                         />
                                     </div>
                                     <button
@@ -145,9 +148,9 @@ export function LeakedNews() {
                                                 href={item.url}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className="group block bg-white rounded-xl border border-slate-200 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                                                className="group block bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                             >
-                                                <div className="relative overflow-hidden aspect-video bg-slate-200">
+                                                <div className="relative overflow-hidden aspect-video bg-slate-200 dark:bg-slate-700">
                                                     <img
                                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                                         src={item.urlToImage || '/placeholder-news.jpg'}
@@ -158,12 +161,12 @@ export function LeakedNews() {
                                                     />
                                                 </div>
                                                 <div className="p-5 md:p-6">
-                                                    <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-3 line-clamp-3 group-hover:text-primary transition-colors duration-200">
+                                                    <h2 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-3 line-clamp-3 group-hover:text-primary transition-colors duration-200">
                                                         {item?.title?.length > 110
                                                             ? item.title.slice(0, 110) + '...'
                                                             : item?.title}
                                                     </h2>
-                                                    <div className="flex items-center gap-2 text-slate-500 text-sm">
+                                                    <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
                                                         <HiOutlineCalendar className="text-base" />
                                                         <span>{formatDate(item.publishedAt)}</span>
                                                     </div>
@@ -174,13 +177,13 @@ export function LeakedNews() {
                                 </div>
                             ) : (
                                 <div className="text-center py-12 md:py-16">
-                                    <div className="inline-block p-4 bg-slate-100 rounded-full mb-4">
-                                        <BiSearch className="text-4xl text-slate-400" />
+                                    <div className="inline-block p-4 bg-slate-100 dark:bg-slate-800 rounded-full mb-4">
+                                        <BiSearch className="text-4xl text-slate-400 dark:text-slate-500" />
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-2">
+                                    <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white mb-2">
                                         No se encontraron resultados
                                     </h3>
-                                    <p className="text-slate-600">
+                                    <p className="text-slate-600 dark:text-slate-400">
                                         Intenta con una búsqueda diferente
                                     </p>
                                 </div>
@@ -195,19 +198,19 @@ export function LeakedNews() {
                                 {Array.from({ length: 6 }).map((_, index) => (
                                     <div
                                         key={index}
-                                        className="h-10 w-24 md:w-32 bg-slate-200 rounded-full animate-pulse"
+                                        className="h-10 w-24 md:w-32 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"
                                     ></div>
                                 ))}
                             </div>
                             <div className="max-w-2xl mx-auto">
-                                <div className="h-12 md:h-14 bg-slate-200 rounded-lg animate-pulse"></div>
+                                <div className="h-12 md:h-14 bg-slate-200 dark:bg-slate-700 rounded-lg animate-pulse"></div>
                             </div>
                         </section>
                         {/* News Grid Skeleton */}
                         <NewsGridSkeleton count={6} />
                         <div className="text-center py-4">
-                            <p className="text-base font-medium text-slate-700">Cargando datos...</p>
-                            <span className="text-sm text-slate-500">
+                            <p className="text-base font-medium text-slate-700 dark:text-slate-300">Cargando datos...</p>
+                            <span className="text-sm text-slate-500 dark:text-slate-400">
                                 Esto podría tardar unos segundos
                             </span>
                         </div>
